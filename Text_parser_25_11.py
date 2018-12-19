@@ -64,10 +64,10 @@ def co_occ_combiner(lista1):
             other_freq = other_word_set[1]
             if(other_word == word):
                 co_occuring_list.append([word,freq + other_freq])
-    print("\nCo-Occuring top words: \n")
+    print("\nCo-Occuring top words: ")
     co_occuring_list.sort()
     for i in range(len(co_occuring_list)):
-        print(str(co_occuring_list[i][0]) + ";" + str(co_occuring_list[i][1]) + "\n")
+        print(str(co_occuring_list[i][0]) + ";" + str(co_occuring_list[i][1]))
 
 def word_analyser():
 
@@ -165,6 +165,7 @@ def naiveBayesSentiment(training_data, test_data, data_size):
 
     predictions = final_model.predict(X_test)
     print(len(predictions))
+
     accuracy = accuracy_score(target, predictions)
 
     print ("\nFinal Accuracy: " + str(accuracy) )
@@ -196,6 +197,17 @@ def naiveBayesSentiment(training_data, test_data, data_size):
         #report_file = open("report.txt", 'a')
         #report_file.write("\n5 words with lowest coefficient:" + "\n" + best_positive + "\n5 words with highest coefficient:")
         #report_file.write("End of report.")
+
+    print("\n10 most neutral reviews:")
+    probas = final_model.predict_proba(X_test)[:,1]
+    probas[:] = [abs(x - 0.5) for x in probas]
+    treshold10 = sorted(probas)[10]
+    treshold100 = sorted(probas)[100]
+
+    for i in range(len(probas)):
+        if(probas[i] < treshold10):
+            print(test_data_clean[i])
+
 
 def create_filtered_file(dir, data_size, file_name, stop_words):
     training_data = []
