@@ -14,10 +14,10 @@ def RunScriptFile(n):
         subprocess.call("Knn_Classifier.py", shell=True)
 
     if n == 4:
-        subprocess.call("NN_AA_Scirpt.py", shell=True)
+        subprocess.call("NN_AA_Script.py", shell=True)
 
     if n == 5:
-        subprocess.call("Preprocessing_Scirpt.py", shell=True)
+        subprocess.call("Preprocessing_Script.py", shell=True)
 
 
 
