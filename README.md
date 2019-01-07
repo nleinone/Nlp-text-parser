@@ -3,10 +3,11 @@ Text parser, GUI and different text classifiers for natural language processing 
 
 
 ## Dataset ##
-Copy Amazon data set under in this folder (https://www.kaggle.com/bittlingmayer/amazonreviews/home)
+Copy Amazon data set under in amazonreviews folder (https://www.kaggle.com/bittlingmayer/amazonreviews/home)
 
-Dataset is expected to be in folders train/train.ft.txt and test/test.ft.txt
+Dataset is expected to be in folders amazonreviews/train/train.ft.txt and amazonreviews/test/test.ft.txt
 ### For 25000 positive and 25000 negative reviews ### 
+Under amazonreviews folder run:
 
 py .\file_sorter.py -i train -s 25000
 
